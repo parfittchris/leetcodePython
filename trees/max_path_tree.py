@@ -29,7 +29,7 @@ class Solution(object):
 
 
 
-a = TreeNode(-10)
+a = TreeNode(3)
 b = TreeNode(9)
 c = TreeNode(20)
 d = TreeNode(15)
