@@ -25,7 +25,7 @@ class Solution(object):
 
 
         traverse(root)
-        return root.left.val
+        return root
 
 
 
