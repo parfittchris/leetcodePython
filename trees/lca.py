@@ -10,14 +10,13 @@ class TreeNode(object):
 
 class Solution(object):
     def lowestCommonAncestor(self, root, p, q):
-      if not root:
-          return
-      elif p < root.val and q < root.val:
-          return self.lowestCommonAncestor(root.left, p, q)
-      elif p > root.val and q > root.val:
-          return self.lowestCommonAncestor(root.right, p, q)
-      else:
-          return root.val  
+      while root:
+            if root.val < p.val and root.val < q.val:
+                root = root.right
+            elif root.val > p.val and root.val > q.val:
+                root = root.left
+            else:
+                return root
 
 
 a = TreeNode(6)
