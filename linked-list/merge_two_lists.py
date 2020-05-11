@@ -15,6 +15,7 @@ class Solution(object):
             left = None
             right = None
 
+
             if l1:
                 left = l1.val
             else:
