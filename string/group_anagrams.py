@@ -46,7 +46,8 @@ class Solution(object):
 
                 
 
-input = ["eat", "tea", "tan", "ate", "nat", "bat"]
+input = ["eat", "tea", "tan", "ate", "nat", "bat", "toe"]
+
 # Output:
 # [
 #     ["ate", "eat", "tea"],
