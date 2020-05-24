@@ -6,7 +6,7 @@ def firstBadVersion(n):
     resultIdx = None
 
     while low < high:
-        if n[low] == 'Bad':
+        if n[low] == 'bad':
             resultIdx = low
             break
 
@@ -23,7 +23,7 @@ def firstBadVersion(n):
 
 
 
-arr = ['Bad', 'Good', 'Good', 'Bad', 'Bad']
+arr = ['bad', 'Good', 'Good', 'bad', 'bad']
 print(firstBadVersion(arr))
 
 
