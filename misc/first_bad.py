@@ -1,30 +1,29 @@
 # https: // leetcode.com/problems/first-bad-version/
 def firstBadVersion(n):
-    high = len(n) - 1
-    low = 0
-    count = 0
-    resultIdx = None
+    low = 1
+    high = n
 
     while low < high:
-        if n[low] == 'bad':
-            resultIdx = low
-            break
-
-        mid = (high - low) / 2
-
-        if n[mid] == 'Good':
-            low = mid + 1
-            count += 1
-        else:
+        mid = ((high + low) // 2)
+    
+        if not isBadVersion(mid) and isBadVersion(mid + 1):
+            return mid + 1
+        elif isBadVersion(mid):
             high = mid - 1
-            count += 1
-            
-    return count
+        else:
+            low = mid + 1
+    
+    return mid
 
 
 
-arr = ['bad', 'Good', 'Good', 'bad', 'bad']
-print(firstBadVersion(arr))
+def isBadVersion(idx):
+    return arr[idx]
+
+
+arr = [False, True, True, True, True]
+print(firstBadVersion(len(arr)))
+
 
 
        
