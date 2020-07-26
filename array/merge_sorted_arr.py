@@ -7,35 +7,42 @@
 
 
 def mergeSorted(arr1, arr2, m, n):
-    i = len(arr1) - 1
+    # set pointer to length of arr1 - 1
+    pointer = len(arr1) - 1
 
-    while i >= 0:
+    # while loop that moves pointer backwards. 
+    while pointer >= 0:
+        nextVal = None
+
+    # fill current idx of arr1 with the greater of arr1[m]/arr2[n]
+    # decrement m/n depending on whatever is used
+    # if m or n is 0 choose other
         if m == 0:
-            next_val = arr2[n - 1]
+            nextVal = arr2[n - 1]
             n -= 1
-        elif n == 0:          
-            next_val = arr1[m - 1]
+        elif n == 0:
+            nextVal = arr1[m - 1]
             m -= 1
+        elif arr2[n - 1] > arr1[m - 1]:
+            nextVal = arr2[n - 1]
+            n -= 1
         else:
-            if arr1[m - 1] > arr2[n - 1]:
-                next_val = arr1[m - 1]
-                m -= 1
-            else:
-                next_val = arr2[n - 1]
-                n -= 1
-            
-        arr1[i] = next_val
-        i -= 1
-    
+            nextVal = arr1[m - 1]
+            m -= 1
+        
+
+        arr1[pointer] = nextVal
+    # decrement pointer
+        pointer -= 1
+        
+    # return arr1
     return arr1
 
+nums1 = [1, 2, 3, 0, 0, 0]
+m = 3
+nums2 = [2, 5, 6]
+n = 3
 
-nums1 = [-1, -1, 0, 0, 0, 0]
-
-m = 4
-nums2 = [-1, 0]
-
-n = 2
 
 print(mergeSorted(nums1, nums2, m, n))
 # Output: [1, 2, 2, 3, 5, 6]
